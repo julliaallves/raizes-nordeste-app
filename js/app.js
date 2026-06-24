@@ -48,7 +48,7 @@ const app = {
  <div class="empty-state">
  <div class="empty-state-icon">🔍</div>
  <h3>Página não encontrada</h3>
- <button class="btn btn-primary" onclick​="app.navigate('home')" style="margin-top:var(--space-md)">Voltar ao Início</button>
+ <button class="btn btn-primary" onclick="app.navigate('home')" style="margin-top:var(--space-md)">Voltar ao Início</button>
  </div>
  </div>
  `;
@@ -109,7 +109,7 @@ const app = {
                 html += `
  <div class="form-checkbox" style="margin-bottom:var(--space-xs)">
  <input type="checkbox" id="opt-${i}" data-nome="${optName}" data-preco="${optPreco}" 
- onchange​="app.updateModalTotal(${product.id})" />
+ onchange="app.updateModalTotal(${product.id})" />
  <label for="opt-${i}">${optName}${optPreco > 0 ? ` (+R$${optPreco.toFixed(2)})` : ''}</label>
  </div>
  `;
@@ -126,7 +126,7 @@ const app = {
 
         html += `
  <button class="btn btn-primary btn-full btn-lg" style="margin-top:var(--space-md)" id="modal-add-btn"
- onclick​="app.addFromModal(${product.id})">
+ onclick="app.addFromModal(${product.id})">
  Adicionar ao Carrinho — R$ ${product.preco.toFixed(2)}
  </button>
  `;
@@ -139,7 +139,7 @@ const app = {
     updateModalTotal(productId) {
         const product = PRODUTOS.find(p => p.id === productId);
         let total = product.preco;
-        document.querySelectorAll('hashtag#modal-body input[type="checkbox"]:checked').forEach(cb => {
+        document.querySelectorAll('#modal-body input[type="checkbox"]:checked').forEach(cb => {
             total += parseFloat(cb.dataset.preco) || 0;
         });
         const btn = document.getElementById('modal-add-btn');
@@ -149,7 +149,7 @@ const app = {
     addFromModal(productId) {
         const product = PRODUTOS.find(p => p.id === productId);
         const selected = [];
-        document.querySelectorAll('hashtag#modal-body input[type="checkbox"]:checked').forEach(cb => {
+        document.querySelectorAll('#modal-body input[type="checkbox"]:checked').forEach(cb => {
             selected.push({ nome: cb.dataset.nome, preco: parseFloat(cb.dataset.preco) || 0 });
         });
         store.addToCart(product, 1, selected);
@@ -190,7 +190,7 @@ const app = {
  <div class="form-checkbox" style="margin-bottom:var(--space-xs)">
  <input type="checkbox" id="edit-opt-${i}" data-nome="${optName}" data-preco="${optPreco}" 
  ${isChecked ? 'checked' : ''}
- onchange​="app.updateEditModalTotal(${index})" />
+ onchange="app.updateEditModalTotal(${index})" />
  <label for="edit-opt-${i}">${optName}${optPreco > 0 ? ` (+R$${optPreco.toFixed(2)})` : ''}</label>
  </div>
  `;
@@ -202,7 +202,7 @@ const app = {
  Preço unitário: R$ ${(product.preco + opcoesPreco).toFixed(2)}
  </div>
  <button class="btn btn-primary btn-full btn-lg" style="margin-top:var(--space-md)" id="edit-modal-btn"
- onclick​="app.saveCartItemOptions(${index})">
+ onclick="app.saveCartItemOptions(${index})">
  Salvar Alterações
  </button>
  `;
@@ -216,7 +216,7 @@ const app = {
         const item = store.cart[cartIndex];
         if (!item) return;
         let total = item.product.preco;
-        document.querySelectorAll('hashtag#modal-body input[type="checkbox"]:checked').forEach(cb => {
+        document.querySelectorAll('#modal-body input[type="checkbox"]:checked').forEach(cb => {
             total += parseFloat(cb.dataset.preco) || 0;
         });
         const priceEl = document.getElementById('edit-modal-price');
@@ -225,7 +225,7 @@ const app = {
 
     saveCartItemOptions(cartIndex) {
         const selected = [];
-        document.querySelectorAll('hashtag#modal-body input[type="checkbox"]:checked').forEach(cb => {
+        document.querySelectorAll('#modal-body input[type="checkbox"]:checked').forEach(cb => {
             selected.push({ nome: cb.dataset.nome, preco: parseFloat(cb.dataset.preco) || 0 });
         });
         store.updateCartItem(cartIndex, selected);
@@ -268,9 +268,9 @@ const app = {
  <p style="color:var(--cinza-500);margin-bottom:var(--space-md)">Como foi sua experiência?</p>
  <div style="text-align:center;font-size:2.5rem;margin-bottom:var(--space-md)" id="star-rating">
  ${[1, 2, 3, 4, 5].map(n => `<span style="cursor:pointer;color:var(--cinza-200)" 
- onmouseover​="app._previewStars(${n})" 
- onmouseout​="app._resetStars()"
- onclick​="app._confirmRating('${pedidoId}', ${n})">★</span>`).join('')}
+ onmouseover="app._previewStars(${n})" 
+ onmouseout="app._resetStars()"
+ onclick="app._confirmRating('${pedidoId}', ${n})">★</span>`).join('')}
  </div>
  <p style="text-align:center;color:var(--cinza-400);font-size:0.9rem">Clique em uma estrela para avaliar</p>
  `;
@@ -280,12 +280,12 @@ const app = {
     },
 
     _previewStars(n) {
-        const stars = document.querySelectorAll('hashtag#star-rating span');
+        const stars = document.querySelectorAll('#star-rating span');
         stars.forEach((s, i) => { s.style.color = i < n ? 'var(--mostarda)' : 'var(--cinza-200)'; });
     },
 
     _resetStars() {
-        const stars = document.querySelectorAll('hashtag#star-rating span');
+        const stars = document.querySelectorAll('#star-rating span');
         stars.forEach(s => { s.style.color = 'var(--cinza-200)'; });
     },
 
@@ -384,8 +384,8 @@ const app = {
  Acompanhe o status em "Meus Pedidos"
  </p>
  <div style="display:flex;gap:var(--space-sm);justify-content:center;flex-wrap:wrap">
- <button class="btn btn-primary" onclick​="app.navigate('pedidos')">Acompanhar Pedido</button>
- <button class="btn btn-outline" onclick​="app.navigate('home')">Voltar ao Início</button>
+ <button class="btn btn-primary" onclick="app.navigate('pedidos')">Acompanhar Pedido</button>
+ <button class="btn btn-outline" onclick="app.navigate('home')">Voltar ao Início</button>
  </div>
  </div>
  `;
@@ -402,9 +402,9 @@ const app = {
             const isCurrent = store.currentUnit.id === u.id;
             return `
  <div style="padding:var(--space-sm);border-bottom:1px solid var(--cinza-100);cursor:pointer;transition:background 0.2s;${isCurrent ? 'background:var(--bege);' : ''}"
- onclick​="store.setUnit(${u.id})"
- onmouseover​="this.style.background='var(--cinza-50)'"
- onmouseout​="this.style.background='${isCurrent ? 'var(--bege)' : 'transparent'}'">
+ onclick="store.setUnit(${u.id})"
+ onmouseover="this.style.background='var(--cinza-50)'"
+ onmouseout="this.style.background='${isCurrent ? 'var(--bege)' : 'transparent'}'">
  <div style="font-weight:600;color:var(--marrom)">
  📍 ${u.nome} ${isCurrent ? '<span style="font-size:0.8rem;color:var(--verde)">(atual)</span>' : ''}
  </div>

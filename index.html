@@ -20,9 +20,9 @@
             <p>Utilizamos cookies e dados pessoais conforme a LGPD para melhorar sua experiência.
                 Você pode gerenciar suas preferências a qualquer momento.</p>
             <div class="lgpd-actions">
-                <button class="btn btn-outline" onclick​="app.openLGPD()">Gerenciar Preferências</button>
-                <button class="btn btn-primary" onclick​="app.acceptAllCookies()">Aceitar Todos</button>
-                <button class="btn btn-ghost" onclick​="app.rejectOptionalCookies()">Apenas Essenciais</button>
+                <button class="btn btn-outline" onclick="app.openLGPD()">Gerenciar Preferências</button>
+                <button class="btn btn-primary" onclick="app.acceptAllCookies()">Aceitar Todos</button>
+                <button class="btn btn-ghost" onclick="app.rejectOptionalCookies()">Apenas Essenciais</button>
             </div>
         </div>
     </div>
@@ -30,47 +30,47 @@
     <!-- Header -->
     <header class="header" id="header">
         <div class="header-inner">
-            <div class="logo" onclick​="app.navigate('home')">
+            <div class="logo" onclick="app.navigate('home')">
                 <span class="logo-icon">🍴</span>
                 <span class="logo-text">Raízes do Nordeste</span>
             </div>
             <nav class="nav-desktop" id="nav-desktop">
-                <a href="hashtag#home" data-page="home" class="nav-link active"
-                    onclick​="app.navigate('home');return false;">Início</a>
-                <a href="hashtag#cardapio" data-page="cardapio" class="nav-link"
-                    onclick​="app.navigate('cardapio');return false;">Cardápio</a>
-                <a href="hashtag#pedidos" data-page="pedidos" class="nav-link"
-                    onclick​="app.navigate('pedidos');return false;">Meus Pedidos</a>
-                <a href="hashtag#fidelidade" data-page="fidelidade" class="nav-link"
-                    onclick​="app.navigate('fidelidade');return false;">Fidelidade</a>
+                <a href="#home" data-page="home" class="nav-link active"
+                    onclick="app.navigate('home');return false;">Início</a>
+                <a href="#cardapio" data-page="cardapio" class="nav-link"
+                    onclick="app.navigate('cardapio');return false;">Cardápio</a>
+                <a href="#pedidos" data-page="pedidos" class="nav-link"
+                    onclick="app.navigate('pedidos');return false;">Meus Pedidos</a>
+                <a href="#fidelidade" data-page="fidelidade" class="nav-link"
+                    onclick="app.navigate('fidelidade');return false;">Fidelidade</a>
             </nav>
             <div class="header-actions">
-                <button class="btn-icon cart-btn" onclick​="app.navigate('carrinho')" aria-label="Carrinho de compras">
+                <button class="btn-icon cart-btn" onclick="app.navigate('carrinho')" aria-label="Carrinho de compras">
                     <span class="cart-icon-wrapper">🛒 <span class="cart-badge" id="cart-badge">0</span></span>
                 </button>
-                <button class="btn-icon" onclick​="app.navigate('login')" aria-label="Entrar na conta" id="login-btn">
+                <button class="btn-icon" onclick="app.navigate('login')" aria-label="Entrar na conta" id="login-btn">
                     👤
                 </button>
-                <button class="btn-icon hamburger" onclick​="app.toggleMenu()" aria-label="Abrir menu">
+                <button class="btn-icon hamburger" onclick="app.toggleMenu()" aria-label="Abrir menu">
                     ☰
                 </button>
             </div>
         </div>
         <!-- Mobile menu -->
         <div class="mobile-menu hidden" id="mobile-menu">
-            <a href="#" data-page="home" class="mobile-link" onclick​="app.navigate('home')">🏠 Início</a>
-            <a href="#" data-page="cardapio" class="mobile-link" onclick​="app.navigate('cardapio')">📋 Cardápio</a>
-            <a href="#" data-page="pedidos" class="mobile-link" onclick​="app.navigate('pedidos')">📦 Meus Pedidos</a>
-            <a href="#" data-page="fidelidade" class="mobile-link" onclick​="app.navigate('fidelidade')">⭐
+            <a href="#" data-page="home" class="mobile-link" onclick="app.navigate('home')">🏠 Início</a>
+            <a href="#" data-page="cardapio" class="mobile-link" onclick="app.navigate('cardapio')">📋 Cardápio</a>
+            <a href="#" data-page="pedidos" class="mobile-link" onclick="app.navigate('pedidos')">📦 Meus Pedidos</a>
+            <a href="#" data-page="fidelidade" class="mobile-link" onclick="app.navigate('fidelidade')">⭐
                 Fidelidade</a>
-            <a href="#" data-page="lgpd" class="mobile-link" onclick​="app.navigate('lgpd')">🔒 Privacidade</a>
+            <a href="#" data-page="lgpd" class="mobile-link" onclick="app.navigate('lgpd')">🔒 Privacidade</a>
         </div>
     </header>
 
     <!-- Unit Selector Bar -->
     <div class="unit-bar" id="unit-bar">
         <span>📍 Unidade: <strong id="current-unit">Boa Viagem — Recife</strong></span>
-        <button class="btn btn-ghost btn-sm" onclick​="app.openUnitModal()">Trocar ▼</button>
+        <button class="btn btn-ghost btn-sm" onclick="app.openUnitModal()">Trocar ▼</button>
     </div>
 
     <!-- Main Content -->
@@ -87,9 +87,9 @@
             </div>
             <div class="footer-col">
                 <h4>Links</h4>
-                <a href="hashtag#cardapio" onclick​="app.navigate('cardapio');return false;">Cardápio</a>
-                <a href="hashtag#fidelidade" onclick​="app.navigate('fidelidade');return false;">Programa Fidelidade</a>
-                <a href="hashtag#lgpd" onclick​="app.navigate('lgpd');return false;">Política de Privacidade</a>
+                <a href="#cardapio" onclick="app.navigate('cardapio');return false;">Cardápio</a>
+                <a href="#fidelidade" onclick="app.navigate('fidelidade');return false;">Programa Fidelidade</a>
+                <a href="#lgpd" onclick="app.navigate('lgpd');return false;">Política de Privacidade</a>
             </div>
             <div class="footer-col">
                 <h4>Contato</h4>
@@ -100,30 +100,30 @@
         </div>
         <div class="footer-bottom">
             <p>© 2026 Raízes do Nordeste. Todos os direitos reservados.</p>
-            <p><a href="hashtag#lgpd" onclick​="app.navigate('lgpd');return false;">LGPD — Gerenciar dados pessoais</a>
+            <p><a href="#lgpd" onclick="app.navigate('lgpd');return false;">LGPD — Gerenciar dados pessoais</a>
             </p>
         </div>
     </footer>
 
     <!-- Mobile Bottom Nav -->
     <nav class="bottom-nav" id="bottom-nav">
-        <button data-page="home" class="bottom-nav-item active" onclick​="app.navigate('home')" aria-label="Início">
+        <button data-page="home" class="bottom-nav-item active" onclick="app.navigate('home')" aria-label="Início">
             <span class="bottom-nav-icon">🏠</span>
             <span class="bottom-nav-label">Início</span>
         </button>
-        <button data-page="cardapio" class="bottom-nav-item" onclick​="app.navigate('cardapio')" aria-label="Cardápio">
+        <button data-page="cardapio" class="bottom-nav-item" onclick="app.navigate('cardapio')" aria-label="Cardápio">
             <span class="bottom-nav-icon">📋</span>
             <span class="bottom-nav-label">Cardápio</span>
         </button>
-        <button data-page="carrinho" class="bottom-nav-item" onclick​="app.navigate('carrinho')" aria-label="Carrinho">
+        <button data-page="carrinho" class="bottom-nav-item" onclick="app.navigate('carrinho')" aria-label="Carrinho">
             <span class="bottom-nav-icon">🛒</span>
             <span class="bottom-nav-label">Carrinho</span>
         </button>
-        <button data-page="pedidos" class="bottom-nav-item" onclick​="app.navigate('pedidos')" aria-label="Pedidos">
+        <button data-page="pedidos" class="bottom-nav-item" onclick="app.navigate('pedidos')" aria-label="Pedidos">
             <span class="bottom-nav-icon">📦</span>
             <span class="bottom-nav-label">Pedidos</span>
         </button>
-        <button data-page="fidelidade" class="bottom-nav-item" onclick​="app.navigate('fidelidade')"
+        <button data-page="fidelidade" class="bottom-nav-item" onclick="app.navigate('fidelidade')"
             aria-label="Fidelidade">
             <span class="bottom-nav-icon">⭐</span>
             <span class="bottom-nav-label">Fidelidade</span>
@@ -131,17 +131,17 @@
     </nav>
 
     <!-- Modals -->
-    <div class="modal-overlay hidden" id="modal-overlay" onclick​="app.closeModal()"></div>
+    <div class="modal-overlay hidden" id="modal-overlay" onclick="app.closeModal()"></div>
     <div class="modal hidden" id="modal">
         <div class="modal-header">
             <h3 id="modal-title"></h3>
-            <button class="btn-icon" onclick​="app.closeModal()" aria-label="Fechar">✕</button>
+            <button class="btn-icon" onclick="app.closeModal()" aria-label="Fechar">✕</button>
         </div>
         <div class="modal-body" id="modal-body"></div>
     </div>
 
     <!-- Floating Cart Button -->
-    <div class="floating-cart hidden" id="floating-cart" onclick​="app.navigate('carrinho')">
+    <div class="floating-cart hidden" id="floating-cart" onclick="app.navigate('carrinho')">
         <span class="floating-cart-icon">🛒</span>
         <span class="floating-cart-info">
             <span id="floating-cart-count">0 itens</span>
@@ -150,16 +150,11 @@
     </div>
 
     <!-- Toast -->
-    <div class="toast hidden" id="toast"></div>
+<div class="toast hidden" id="toast"></div>
 
-    <​script src="js/data.js">
-        <​ /script>
-            <​script src="js/store.js">
-                <​ /script>
-                    <​script src="js/pages.js">
-                        <​ /script>
-                            <​script src="js/app.js">
-                                <​ /script>
+    <script src="js/data.js"></script>
+    <script src="js/store.js"></script>
+    <script src="js/pages.js"></script>
+    <script src="js/app.js"></script>
 </body>
-
 </html>
