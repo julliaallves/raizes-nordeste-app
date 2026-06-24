@@ -1,0 +1,520 @@
+/* ============================================
+ RAÃZES DO NORDESTE â€” Design System
+ ============================================ */
+
+:root {
+    /* Colors */
+    --terracota: hashtag#C45C3B;
+    --terracota-dark: hashtag#A0472E;
+    --terracota-light: hashtag#F0D2C3;
+    --mostarda: hashtag#D4A843;
+    --mostarda-light: hashtag#FFF5D9;
+    --bege: hashtag#FFF8F0;
+    --marrom: hashtag#3B2314;
+    --marrom-light: hashtag#7A6B5D;
+    --verde: hashtag#2D8B4E;
+    --verde-light: hashtag#DCF5E6;
+    --azul: hashtag#4682C8;
+    --azul-light: hashtag#DCE9F7;
+    --vermelho: hashtag#D44040;
+    --vermelho-light: hashtag#FFE0E0;
+    --branco: hashtag#FFFFFF;
+    --cinza-50: hashtag#F9FAFB;
+    --cinza-100: hashtag#F3F4F6;
+    --cinza-200: hashtag#E5E7EB;
+    --cinza-300: hashtag#D1D5DB;
+    --cinza-400: hashtag#9CA3AF;
+    --cinza-500: hashtag#6B7280;
+    --cinza-700: #374151;
+    --cinza-900: #111827;
+
+    /* Typography */
+    --font-main: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    --font-display: Georgia, 'Times New Roman', serif;
+
+    /* Spacing */
+    --space-xs: 4px;
+    --space-sm: 8px;
+    --space-md: 16px;
+    --space-lg: 24px;
+    --space-xl: 32px;
+    --space-2xl: 48px;
+
+    /* Radius */
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-lg: 16px;
+    --radius-full: 9999px;
+
+    /* Shadows */
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+/* Reset */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    font-family: var(--font-main);
+    background: var(--bege);
+    color: var(--cinza-900);
+    line-height: 1.6;
+    min-height: 100vh;
+    padding-bottom: 70px;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+a {
+    color: var(--terracota);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* ============================================
+ HEADER
+ ============================================ */
+.header {
+    background: var(--terracota);
+    color: var(--branco);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: var(--shadow-md);
+}
+
+.header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--space-sm) var(--space-md);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-md);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.logo-icon {
+    font-size: 1.5rem;
+}
+
+.logo-text {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.nav-desktop {
+    display: flex;
+    gap: var(--space-lg);
+}
+
+.nav-link {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 0.95rem;
+    font-weight: 500;
+    padding: var(--space-xs) 0;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--branco);
+    border-bottom-color: var(--mostarda);
+    text-decoration: none;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+}
+
+.btn-icon {
+    background: none;
+    border: none;
+    color: var(--branco);
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: var(--radius-sm);
+    position: relative;
+    transition: background 0.2s;
+}
+
+.btn-icon:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.cart-btn {
+    font-size: 1.5rem;
+    padding: var(--space-xs) var(--space-md);
+}
+
+.cart-icon-wrapper {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+}
+
+.cart-badge {
+    position: absolute;
+    top: -8px;
+    right: -10px;
+    background: var(--mostarda);
+    color: var(--marrom);
+    font-size: 0.7rem;
+    font-weight: bold;
+    padding: 2px 6px;
+    border-radius: var(--radius-full);
+    min-width: 18px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Floating Cart Button */
+.floating-cart {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: var(--terracota);
+    color: var(--branco);
+    border-radius: var(--radius-lg);
+    padding: var(--space-sm) var(--space-md);
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    cursor: pointer;
+    z-index: 100;
+    box-shadow: 0 4px 15px rgba(196, 92, 59, 0.4);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.floating-cart:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(196, 92, 59, 0.5);
+}
+
+.floating-cart-icon {
+    font-size: 1.4rem;
+}
+
+.floating-cart-info {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.8rem;
+    line-height: 1.2;
+}
+
+.floating-cart-info hashtag#floating-cart-total {
+    font-weight: bold;
+    font-size: 0.95rem;
+}
+
+.hamburger {
+    display: none;
+}
+
+/* Mobile Menu */
+.mobile-menu {
+    background: var(--terracota-dark);
+    padding: var(--space-sm) 0;
+}
+
+.mobile-link {
+    display: block;
+    color: var(--branco);
+    padding: var(--space-sm) var(--space-md);
+    font-size: 1rem;
+    transition: background 0.2s;
+}
+
+.mobile-link:hover {
+    background: rgba(255, 255, 255, 0.1);
+    text-decoration: none;
+}
+
+/* Unit Bar */
+.unit-bar {
+    background: var(--mostarda-light);
+    padding: var(--space-sm) var(--space-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-md);
+    font-size: 0.9rem;
+    border-bottom: 1px solid var(--cinza-200);
+}
+
+/* ============================================
+ FOOTER
+ ============================================ */
+.footer {
+    background: var(--marrom);
+    color: var(--cinza-200);
+    padding: var(--space-2xl) var(--space-md) var(--space-md);
+    margin-top: var(--space-2xl);
+}
+
+.footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-xl);
+}
+
+.footer-col h4 {
+    color: var(--mostarda);
+    margin-bottom: var(--space-sm);
+}
+
+.footer-col a {
+    display: block;
+    color: var(--cinza-300);
+    padding: 2px 0;
+    font-size: 0.9rem;
+}
+
+.footer-col a:hover {
+    color: var(--branco);
+}
+
+.footer-bottom {
+    margin-top: var(--space-xl);
+    padding-top: var(--space-md);
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--cinza-400);
+}
+
+.footer-bottom a {
+    color: var(--mostarda);
+}
+
+/* ============================================
+ BOTTOM NAV (Mobile)
+ ============================================ */
+.bottom-nav {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--branco);
+    border-top: 1px solid var(--cinza-200);
+    z-index: 100;
+    padding: var(--space-xs) 0;
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.bottom-nav-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    background: none;
+    border: none;
+    color: var(--cinza-400);
+    font-size: 0.7rem;
+    cursor: pointer;
+    padding: var(--space-xs) 0;
+    transition: color 0.2s;
+}
+
+.bottom-nav-item.active {
+    color: var(--terracota);
+}
+
+.bottom-nav-icon {
+    font-size: 1.3rem;
+}
+
+
+/* ============================================
+ MODAL
+ ============================================ */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 200;
+}
+
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--branco);
+    border-radius: var(--radius-lg);
+    width: 90%;
+    max-width: 500px;
+    max-height: 85vh;
+    overflow-y: auto;
+    z-index: 201;
+    box-shadow: var(--shadow-lg);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-md) var(--space-lg);
+    border-bottom: 1px solid var(--cinza-200);
+}
+
+.modal-header .btn-icon {
+    color: var(--cinza-500);
+    font-size: 1rem;
+}
+
+.modal-body {
+    padding: var(--space-lg);
+}
+
+/* ============================================
+ TOAST
+ ============================================ */
+.toast {
+    position: fixed;
+    bottom: 90px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--marrom);
+    color: var(--branco);
+    padding: var(--space-sm) var(--space-lg);
+    border-radius: var(--radius-full);
+    font-size: 0.9rem;
+    z-index: 300;
+    box-shadow: var(--shadow-lg);
+    animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateX(-50%) translateY(20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(-50%) translateY(0);
+        opacity: 1;
+    }
+}
+
+/* ============================================
+ LGPD Banner
+ ============================================ */
+.lgpd-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--branco);
+    border-top: 3px solid var(--terracota);
+    padding: var(--space-lg);
+    z-index: 150;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Adiciona espaÃ§o extra no body quando o banner LGPD estÃ¡ visÃ­vel */
+body:has(.lgpd-banner:not(.hidden)) main {
+    padding-bottom: 180px;
+}
+
+.lgpd-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.lgpd-content p {
+    margin-bottom: var(--space-sm);
+    font-size: 0.9rem;
+}
+
+.lgpd-actions {
+    display: flex;
+    gap: var(--space-sm);
+    flex-wrap: wrap;
+    margin-top: var(--space-sm);
+}
+
+/* ============================================
+ RESPONSIVE
+ ============================================ */
+@media (max-width: 768px) {
+    .nav-desktop {
+        display: none;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    .bottom-nav {
+        display: flex;
+    }
+
+    body {
+        padding-bottom: 65px;
+    }
+
+    .footer {
+        margin-bottom: 65px;
+    }
+
+    .unit-bar {
+        font-size: 0.8rem;
+    }
+
+    .lgpd-banner {
+        bottom: 65px;
+    }
+
+    .toast {
+        bottom: 140px;
+    }
+
+    .floating-cart {
+        bottom: 80px;
+    }
+}
+
+@media (min-width: 769px) {
+    .mobile-menu {
+        display: none !important;
+    }
+}
