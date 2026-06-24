@@ -1,5 +1,5 @@
 /**
- * Pages — Renderização de cada página do R.N
+ * Pages — Renderização de cada página do SPA
  */
 
 const pages = {
@@ -13,7 +13,7 @@ const pages = {
  <section class="hero">
  <h1>🍴 Sabor Nordestino Autêntico</h1>
  <p>Peça online e retire na unidade mais próxima. Tapiocas, cuscuz, cafés regionais e muito mais!</p>
- <button class="btn btn-secondary btn-lg" onclick​="app.navigate('cardapio')">Ver Cardápio</button>
+ <button class="btn btn-secondary btn-lg" onclick="app.navigate('cardapio')">Ver Cardápio</button>
  </section>
 
  <div class="container">
@@ -26,7 +26,7 @@ const pages = {
 
  <div class="section-header" style="margin-top:var(--space-xl)">
  <h2 class="section-title">Destaques do Cardápio</h2>
- <button class="btn btn-ghost" onclick​="app.navigate('cardapio')">Ver tudo →</button>
+ <button class="btn btn-ghost" onclick="app.navigate('cardapio')">Ver tudo →</button>
  </div>
 
  <div class="grid-products">
@@ -75,7 +75,7 @@ const pages = {
  <div class="cardapio-header">
  <div class="search-bar">
  <span>🔍</span>
- <input type="text" placeholder="Buscar no cardápio..." id="search-input" oninput​="app.filterProducts()" aria-label="Buscar produtos" />
+ <input type="text" placeholder="Buscar no cardápio..." id="search-input" oninput="app.filterProducts()" aria-label="Buscar produtos" />
  </div>
  </div>
 
@@ -83,7 +83,7 @@ const pages = {
  ${CATEGORIAS.map(c => `
  <button class="chip ${c.id === 'todos' ? 'active' : ''}" 
  data-cat="${c.id}" 
- onclick​="app.filterByCategory('${c.id}')">
+ onclick="app.filterByCategory('${c.id}')">
  ${c.icone} ${c.nome}
  </button>
  `).join('')}
@@ -108,7 +108,7 @@ const pages = {
  <div class="empty-state-icon">🛒</div>
  <h3>Seu carrinho está vazio</h3>
  <p>Adicione itens do nosso cardápio!</p>
- <button class="btn btn-primary" onclick​="app.navigate('cardapio')" style="margin-top:var(--space-md)">Ver Cardápio</button>
+ <button class="btn btn-primary" onclick="app.navigate('cardapio')" style="margin-top:var(--space-md)">Ver Cardápio</button>
  </div>
  </div>
  `;
@@ -139,19 +139,19 @@ const pages = {
  </div>
  ${item.product.opcoes && item.product.opcoes.length > 0 ? `
  <button class="btn btn-ghost btn-sm" style="padding:2px 8px;font-size:0.75rem;margin-top:4px" 
- onclick​="app.editCartItemOptions(${i})">✏️ Editar opcionais</button>
+ onclick="app.editCartItemOptions(${i})">✏️ Editar opcionais</button>
  ` : ''}
  <div class="cart-item-actions">
  <div class="qty-control">
- <button class="qty-btn" onclick​="app.updateQty(${i}, ${item.qty - 1})" aria-label="Diminuir quantidade">−</button>
+ <button class="qty-btn" onclick="app.updateQty(${i}, ${item.qty - 1})" aria-label="Diminuir quantidade">−</button>
  <span class="qty-value">${item.qty}</span>
- <button class="qty-btn" onclick​="app.updateQty(${i}, ${item.qty + 1})" aria-label="Aumentar quantidade">+</button>
+ <button class="qty-btn" onclick="app.updateQty(${i}, ${item.qty + 1})" aria-label="Aumentar quantidade">+</button>
  </div>
  <span class="price">R$ ${precoTotal.toFixed(2)}</span>
  </div>
  </div>
  <button class="btn-icon" style="color:var(--terracota);font-size:1.2rem;position:absolute;top:8px;right:8px;" 
- onclick​="app.removeItem(${i})" aria-label="Remover item">✕</button>
+ onclick="app.removeItem(${i})" aria-label="Remover item">✕</button>
  </div>
  `}).join('')}
  </div>
@@ -170,10 +170,10 @@ const pages = {
  <span>Total</span>
  <span class="price">R$ ${store.getCartTotal().toFixed(2)}</span>
  </div>
- <button class="btn btn-primary btn-full btn-lg" style="margin-top:var(--space-md)" onclick​="app.navigate('checkout')">
+ <button class="btn btn-primary btn-full btn-lg" style="margin-top:var(--space-md)" onclick="app.navigate('checkout')">
  Finalizar Pedido
  </button>
- <button class="btn btn-outline btn-full" style="margin-top:var(--space-sm)" onclick​="app.navigate('cardapio')">
+ <button class="btn btn-outline btn-full" style="margin-top:var(--space-sm)" onclick="app.navigate('cardapio')">
  Continuar Comprando
  </button>
  </div>
@@ -202,19 +202,19 @@ const pages = {
  <div class="order-card">
  <h3 style="margin-bottom:var(--space-md)">Forma de Pagamento</h3>
  <div class="payment-methods" id="payment-methods">
- <div class="payment-method selected" data-method="PIX" onclick​="app.selectPayment(this, 'PIX')">
+ <div class="payment-method selected" data-method="PIX" onclick="app.selectPayment(this, 'PIX')">
  <div class="payment-method-icon">📱</div>
  <div class="payment-method-name">PIX</div>
  </div>
- <div class="payment-method" data-method="Crédito" onclick​="app.selectPayment(this, 'Crédito')">
+ <div class="payment-method" data-method="Crédito" onclick="app.selectPayment(this, 'Crédito')">
  <div class="payment-method-icon">💳</div>
  <div class="payment-method-name">Crédito</div>
  </div>
- <div class="payment-method" data-method="Débito" onclick​="app.selectPayment(this, 'Débito')">
+ <div class="payment-method" data-method="Débito" onclick="app.selectPayment(this, 'Débito')">
  <div class="payment-method-icon">💳</div>
  <div class="payment-method-name">Débito</div>
  </div>
- <div class="payment-method" data-method="Carteira Digital" onclick​="app.selectPayment(this, 'Carteira Digital')">
+ <div class="payment-method" data-method="Carteira Digital" onclick="app.selectPayment(this, 'Carteira Digital')">
  <div class="payment-method-icon">👛</div>
  <div class="payment-method-name">Carteira Digital</div>
  </div>
@@ -245,12 +245,12 @@ const pages = {
  <div class="form-checkbox" style="margin-bottom:var(--space-md)">
  <input type="checkbox" id="consent-checkout" />
  <label for="consent-checkout">
- Li e aceito os <a href="#" onclick​="app.navigate('lgpd');return false;">Termos de Uso e Política de Privacidade</a> 
+ Li e aceito os <a href="#" onclick="app.navigate('lgpd');return false;">Termos de Uso e Política de Privacidade</a> 
  conforme a LGPD.
  </label>
  </div>
 
- <button class="btn btn-primary btn-full btn-lg" onclick​="app.processPayment()">
+ <button class="btn btn-primary btn-full btn-lg" onclick="app.processPayment()">
  Confirmar e Pagar — R$ ${store.getCartTotal().toFixed(2)}
  </button>
  </div>
@@ -269,9 +269,9 @@ const pages = {
  <h2 class="section-title" style="margin-bottom:var(--space-lg)">Meus Pedidos</h2>
  
  <div class="chips" style="margin-bottom:var(--space-lg)">
- <button class="chip ${filtroAtivo === 'todos' ? 'active' : ''}" onclick​="app.filterPedidos('todos')">Todos</button>
- <button class="chip ${filtroAtivo === 'andamento' ? 'active' : ''}" onclick​="app.filterPedidos('andamento')">Em andamento</button>
- <button class="chip ${filtroAtivo === 'entregues' ? 'active' : ''}" onclick​="app.filterPedidos('entregues')">Entregues</button>
+ <button class="chip ${filtroAtivo === 'todos' ? 'active' : ''}" onclick="app.filterPedidos('todos')">Todos</button>
+ <button class="chip ${filtroAtivo === 'andamento' ? 'active' : ''}" onclick="app.filterPedidos('andamento')">Em andamento</button>
+ <button class="chip ${filtroAtivo === 'entregues' ? 'active' : ''}" onclick="app.filterPedidos('entregues')">Entregues</button>
  </div>
 
  ${pedidosList.length === 0 ? `
@@ -279,7 +279,7 @@ const pages = {
  <div class="empty-state-icon">📋</div>
  <h3>Nenhum pedido ${filtroAtivo === 'andamento' ? 'em andamento' : filtroAtivo === 'entregues' ? 'entregue' : ''}</h3>
  <p>${filtroAtivo === 'andamento' ? 'Seus pedidos em preparo aparecerão aqui.' : 'Faça seu primeiro pedido!'}</p>
- <button class="btn btn-primary" onclick​="app.navigate('cardapio')" style="margin-top:var(--space-md)">Ver Cardápio</button>
+ <button class="btn btn-primary" onclick="app.navigate('cardapio')" style="margin-top:var(--space-md)">Ver Cardápio</button>
  </div>
  ` : pedidosList.map(p => `
  <div class="order-card" style="position:relative;">
@@ -328,13 +328,13 @@ const pages = {
  ${'★'.repeat(p.avaliacao)}${'☆'.repeat(5 - p.avaliacao)}
  </span>
  ` : p.status === 'delivered' ? `
- <button class="btn btn-ghost btn-sm" onclick​="app.avaliarPedido('${p.id}')">Avaliar pedido</button>
+ <button class="btn btn-ghost btn-sm" onclick="app.avaliarPedido('${p.id}')">Avaliar pedido</button>
  ` : ''}
  </div>
 
  ${p.status === 'delivered' ? `
  <div style="margin-top:var(--space-sm)">
- <button class="btn btn-outline btn-sm" onclick​="app.reorderItems(${JSON.stringify(p.itens).replace(/"/g, '&quot;')})">🔄 Pedir novamente</button>
+ <button class="btn btn-outline btn-sm" onclick="app.reorderItems(${JSON.stringify(p.itens).replace(/"/g, '&quot;')})">🔄 Pedir novamente</button>
  </div>
  ` : ''}
  </div>
@@ -413,7 +413,7 @@ const pages = {
  <div class="reward-points">${r.pontos} pontos</div>
  ${pts >= r.pontos
                 ? `<button class="btn btn-success btn-sm" style="margin-top:var(--space-sm)" 
- onclick​="app.redeemReward('${r.nome}', ${r.pontos})">Resgatar</button>`
+ onclick="app.redeemReward('${r.nome}', ${r.pontos})">Resgatar</button>`
                 : `<div style="font-size:0.8rem;color:var(--cinza-400);margin-top:var(--space-sm)">
  Faltam ${r.pontos - pts} pts</div>`
             }
@@ -463,10 +463,10 @@ const pages = {
  <p style="color:var(--cinza-400);font-size:0.85rem">CPF: ${store.user.cpf}</p>
  </div>
  <div style="display:flex;flex-direction:column;gap:var(--space-sm)">
- <button class="btn btn-outline btn-full" onclick​="app.navigate('pedidos')">📦 Meus Pedidos</button>
- <button class="btn btn-outline btn-full" onclick​="app.navigate('fidelidade')">⭐ Fidelidade (${store.loyalty.pontos} pts)</button>
- <button class="btn btn-outline btn-full" onclick​="app.navigate('lgpd')">🔒 Privacidade</button>
- <button class="btn btn-danger btn-full" onclick​="store.logout()">Sair da Conta</button>
+ <button class="btn btn-outline btn-full" onclick="app.navigate('pedidos')">📦 Meus Pedidos</button>
+ <button class="btn btn-outline btn-full" onclick="app.navigate('fidelidade')">⭐ Fidelidade (${store.loyalty.pontos} pts)</button>
+ <button class="btn btn-outline btn-full" onclick="app.navigate('lgpd')">🔒 Privacidade</button>
+ <button class="btn btn-danger btn-full" onclick="store.logout()">Sair da Conta</button>
  </div>
  </div>
  `;
@@ -476,7 +476,7 @@ const pages = {
  <div class="login-container">
  <h2>Entrar na Conta</h2>
 
-<form onsubmit​="event.preventDefault(); store.login(document.getElementById('login-email').value, document.getElementById('login-senha').value)">
+<form onsubmit="event.preventDefault(); store.login(document.getElementById('login-email').value, document.getElementById('login-senha').value)">
  <div class="form-group">
  <label class="form-label" for="login-email">E-mail ou CPF</label>
  <input class="form-input" type="text" id="login-email" placeholder="seu@email.com" required autocomplete="email" />
@@ -488,14 +488,14 @@ const pages = {
  <div class="form-checkbox" style="margin-bottom:var(--space-md)">
  <input type="checkbox" id="lgpd-login-consent" required />
  <label for="lgpd-login-consent" style="font-size:0.85rem">
- Concordo com os <a href="#" onclick​="app.navigate('lgpd');return false;">Termos de Uso</a> e 
- <a href="#" onclick​="app.navigate('lgpd');return false;">Política de Privacidade</a> (LGPD).
+ Concordo com os <a href="#" onclick="app.navigate('lgpd');return false;">Termos de Uso</a> e 
+ <a href="#" onclick="app.navigate('lgpd');return false;">Política de Privacidade</a> (LGPD).
  </label>
  </div>
  <button type="submit" class="btn btn-primary btn-full btn-lg">Entrar</button>
  </form>
  <div class="login-divider">ou</div>
- <button class="btn btn-outline btn-full" onclick​="app.showToast('Cadastro simulado: em desenvolvimento')">
+ <button class="btn btn-outline btn-full" onclick="app.showToast('Cadastro simulado: em desenvolvimento')">
  Criar Conta
  </button>
  </div>
@@ -541,7 +541,7 @@ const pages = {
  <label class="toggle">
  <input type="checkbox" id="consent-analytics" 
  ${store.lgpdConsent.analytics ? 'checked' : ''}
- onchange​="store.setConsent('analytics', this.checked)" />
+ onchange="store.setConsent('analytics', this.checked)" />
  <span class="toggle-slider"></span>
  </label>
  </div>
@@ -556,7 +556,7 @@ const pages = {
  <label class="toggle">
  <input type="checkbox" id="consent-marketing"
  ${store.lgpdConsent.marketing ? 'checked' : ''}
- onchange​="store.setConsent('marketing', this.checked)" />
+ onchange="store.setConsent('marketing', this.checked)" />
  <span class="toggle-slider"></span>
  </label>
  </div>
@@ -567,27 +567,22 @@ const pages = {
  <div>
  <h4>🎯 Personalização</h4>
 
-👏
-👍
-😊
-
-
 
 <p>Permitem personalizar o cardápio e sugestões baseadas no seu histórico.</p>
  </div>
  <label class="toggle">
  <input type="checkbox" id="consent-personalization"
  ${store.lgpdConsent.personalization ? 'checked' : ''}
- onchange​="store.setConsent('personalization', this.checked)" />
+ onchange="store.setConsent('personalization', this.checked)" />
  <span class="toggle-slider"></span>
  </label>
  </div>
  </div>
 
  <div style="display:flex;gap:var(--space-sm);flex-wrap:wrap;margin-top:var(--space-lg)">
- <button class="btn btn-primary" onclick​="app.saveLGPD()">Salvar Preferências</button>
- <button class="btn btn-outline" onclick​="app.acceptAllLGPD()">Aceitar Todos</button>
- <button class="btn btn-ghost" onclick​="app.rejectAllLGPD()">Rejeitar Opcionais</button>
+ <button class="btn btn-primary" onclick="app.saveLGPD()">Salvar Preferências</button>
+ <button class="btn btn-outline" onclick="app.acceptAllLGPD()">Aceitar Todos</button>
+ <button class="btn btn-ghost" onclick="app.rejectAllLGPD()">Rejeitar Opcionais</button>
  </div>
 
  <div class="order-card" style="margin-top:var(--space-xl)">
@@ -609,9 +604,9 @@ const pages = {
  <div class="order-card" style="margin-top:var(--space-md)">
  <h3 style="margin-bottom:var(--space-sm)">Ações sobre seus dados</h3>
  <div style="display:flex;gap:var(--space-sm);flex-wrap:wrap">
- <button class="btn btn-outline btn-sm" onclick​="app.showToast('Solicitação de exportação enviada')">📥 Exportar meus dados</button>
- <button class="btn btn-outline btn-sm" onclick​="app.showToast('Solicitação de correção enviada')">✏️ Solicitar correção</button>
- <button class="btn btn-danger btn-sm" onclick​="app.confirmDeleteData()">🗑️ Solicitar exclusão</button>
+ <button class="btn btn-outline btn-sm" onclick="app.showToast('Solicitação de exportação enviada')">📥 Exportar meus dados</button>
+ <button class="btn btn-outline btn-sm" onclick="app.showToast('Solicitação de correção enviada')">✏️ Solicitar correção</button>
+ <button class="btn btn-danger btn-sm" onclick="app.confirmDeleteData()">🗑️ Solicitar exclusão</button>
  </div>
  </div>
  ` : ''}
@@ -656,7 +651,7 @@ function renderProductCard(product) {
  <span class="price">R$ ${product.preco.toFixed(2)}</span>
  </div>
  ${product.disponivel
-            ? `<button class="btn btn-primary btn-sm" onclick​="app.openProductModal(${product.id})" aria-label="Adicionar ${product.nome} ao carrinho">Adicionar</button>`
+            ? `<button class="btn btn-primary btn-sm" onclick="app.openProductModal(${product.id})" aria-label="Adicionar ${product.nome} ao carrinho">Adicionar</button>`
             : `<span style="color:var(--cinza-400);font-size:0.8rem">Indisponível</span>`
         }
  </div>
@@ -690,4 +685,3 @@ function renderStatusBar(currentStep) {
     });
     return html;
 }
-
